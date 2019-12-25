@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="стили.css" type="text/css" />
+    <meta charset="utf-8" />
+    <title>Welcome to ArtCloud</title>
+    <link rel="stylesheet" href="мпам.css" />
+    <script src="Script1.js"></script>
+    <link rel="shortcut icon" href="ico.png" type="image/x-icon">
+    <script type="text/javascript">
+
+        function valid(form) {
+            var fail = false;
+            var email = form.email.value;
+            var password = form.password.value;
+
+            var adr_pattern = /[0-9a-z_-]+@[0-9a-z_-]+\.[a-z]{2,5}/i;
+
+
+            if (adr_pattern.test(email) == false)
+                fail = "Вы ввели E-mail не верно!";
+            else if (password == "")
+                fail = "Вы не ввели пароль!";
+
+
+            if (fail) {
+                alert(fail)
+            } else {
+                window.location = "404.html";
+            }
+        }
+
+    </script>
+</head>
+<body background="14066651e10a710d8a6a09b450eb1dba.JPG">
+
+    <nav class="top-menu">
+        <a class="navbar-logo" href=""><img src=""></a>
+        <ul class="menu-main">
+            <li><a href="#" onclick="home()">Домой</a></li>
+            <li><a href="#" onclick="sing()">Войти</a></li>
+            <li><a href="#" onclick="up()">Регистрация</a></li>
+            <li><a href="#" onclick="">Контакты</a></li>
+
+        </ul>
+    </nav>    
+
+    <center>
+        <h1>ArlCloud</h1>
+        <h1>Вход</h1>
+        <form action="registration.php" method="post" name="test" id="form">
+            <p>
+                <label for="email"></label>
+                <input type="text" name="email" class="user" placeholder="E-mail" id="email" / > <br / >
+            </p>
+
+            <p>
+                <label for="password"></label>
+                <input type="password" class="user" name="password" placeholder="Пароль" id="password" / > <br / >
+            </p>
+
+            <a href="#" class="button24" onclick="valid(document.getElementById('form'))" name="submit">Готово</a>
+
+        </form>
+        <div class="bottomMenu">
+            <span style="color: #B22222;"><h5>Внимание этот сайт работает на JavaScript,убедитесь что он у вас не отключен в настройках браузера!!! Все права защищенны ArlCloud&copy; 2019 г.</h5></span>
+        </div>
+        <br/>
+        <button class="btn warning" onclick="retr()">Забыли пароль?</button>
+    </center>
+</body>
+</html>

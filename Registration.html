@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="стили.css" type="text/css" />
+    <meta charset="utf-8" />
+    <title>Welcome to ArtCloud</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="Script1.js"></script>
+    <link rel="shortcut icon" href="ico.png" type="image/x-icon">
+    <script type="text/javascript">
+
+        function valid(form) {
+            var fail = false;
+            var name = form.name.value;
+            var email = form.email.value;
+            var password = form.password.value;
+            var REpassword = form.REpassword.value;
+            var state = form.state.value;
+
+            var adr_pattern = /[0-9a-z_-]+@[0-9a-z_-]+\.[a-z]{2,5}/i;
+
+
+
+            if (name == "" || name == " " || name == "  " || name == "   " || name == "    ")
+                fail = "Вы не ввели имя!";
+            else if (adr_pattern.test(email) == false)
+                fail = "Вы ввели E-mail не верно!";
+            else if (password == "")
+                fail = "Вы не ввели пароль!";
+            else if (password != REpassword)
+                fail = "Пароли не совпадают!";
+            else if (state == "")
+                fail = "Укажите пол!";
+            else if (password.length < 8)
+                fail = "Пароль слишком короткий"
+            if (fail) {
+                alert(fail)
+            } else {
+                window.location = "thankyou.html";
+            }
+        }
+
+    </script>
+</head>
+<body background="14066651e10a710d8a6a09b450eb1dba.JPG">
+
+    <nav class="top-menu">
+        <a class="navbar-logo" href=""><img src=""></a>
+        <ul class="menu-main">
+            <li><a href="#" onclick="home()">Домой</a></li>
+            <li><a href="#" onclick="sing()">Войти</a></li>
+            <li><a href="#" onclick="up()">Регистрация</a></li>
+            <li><a href="#" onclick="">Контакты</a></li>
+
+        </ul>
+    </nav>
+      
+
+    <center>
+        <h1>ArlCloud Регистрация</h1>
+        <form action="registration.php" method="post" name="test" id="form">
+
+            <p>
+                <label for="name"></label>
+                <input type="text" name="name" class="user" placeholder="Имя" id="name" / > <br / >
+            </p>
+
+            <p>
+                <label for="email"></label>
+                <input type="text" name="email" class="user" placeholder="E-mail" id="email" / > <br / >
+            </p>
+
+            <p>
+                <label for="password"></label>
+                <input type="password" class="user" name="password" placeholder="Пароль" id="password" maxlength="20"/ > <br / >
+            </p>
+
+
+            <p>
+                <label for="REpassword"></label>
+                <input type="password" class="user" name="REpassword" placeholder="Повторите пароль" id="REpassword" maxlength="20"/ > <br / >
+            </p>
+
+            <span> Пол:</span></br>
+
+            <label for="male"><h2>Мужчина</h2></label>
+            <input type="radio" name="state" id="male" value="Man" class="check-button"/ >
+
+            <label for="female"><h2>Женщина</h2></label>
+            <input type="radio" name="state" id="female" value="Woman" class="check-button"/ >
+
+            <a href="#" class="button24" onclick="valid(document.getElementById('form'))" name="submit">Готово</a>
+
+        </form>
+        
+
+        
+    </center>
+</body>
+</html >
